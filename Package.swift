@@ -20,12 +20,12 @@ let package = Package(
     targets: [
         // Подключаем наш фреймворк локально, также его можно добавлять и через url
 //        .binaryTarget(name: "YandexMapsMobileBinary", path: "./Sources/YandexMapsMobile.xcframework"),
-        .binaryTarget(name: "YandexMapsMobileBinary", url: "https://github.com/max270598/YandexMapsMobileZip/releases/download/2.0.0/YandexMapsMobile.xcframework.zip", checksum: "2af1813d655ac552f84fb3e733cbae8aec8428db69081289cae357278641efc8"),
+        .binaryTarget(name: "YandexMapsMobile", url: "https://github.com/max270598/YandexMapsMobileZip/releases/download/2.0.0/YandexMapsMobile.xcframework.zip", checksum: "2af1813d655ac552f84fb3e733cbae8aec8428db69081289cae357278641efc8"),
         // обертываем наш фреймворк зависимостями
         .target(
             name: "YandexMapsMobileWrapper",
             dependencies: [
-                .target(name: "YandexMapsMobileBinary"),
+                .target(name: "YandexMapsMobile"),
             ],
             linkerSettings: [
                 .linkedFramework("CoreLocation"),
